@@ -21,7 +21,7 @@ class Memo extends CI_Controller
         $data['memo'] = $this->m_memo->tampildata();
          $data['memo2'] = $this->m_memo->gabungann();
 
-         $data['memo3'] = $this->m_memo->getwhere('status',0,'memo')->result();
+         // $data['memo3'] = $this->m_memo->getwhere('status',0,'memo')->result();
         $data['bb'] = $this->m_memo->getwhere('status',0,'memo')->num_rows();
 
           $this->form_validation->set_rules('nama','nama','required|trim', [

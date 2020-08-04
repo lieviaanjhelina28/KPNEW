@@ -7,32 +7,6 @@
      </div>
      <?php echo $this->session->flashdata('message'); ?>
 
-<!--      <div class="panel-body">
-      <br>
-       <div class="container-fluid">
-         <?= form_open('admin/Memo'); ?>
-         <div class="form-group row">
-             <label class="col-sm-2 col-form-label"><b>Nama</b></label>
-             <div class="col-sm-10">
-                <input type="text" readonly="" name="nama" class="form-control" id="nama" value="<?php echo $user['nama']; ?>">
-             </div>
-         </div>
-         <div class="form-group row">
-             <label for="inputPassword3" class="col-sm-2 col-form-label"><b>Pesan</b></label>
-             <div class="col-sm-10">
-               <textarea type="text" name="pesan" class="form-control" id="pesan" placeholder="Tulis Memo"></textarea>
-         <?php echo form_error('pesan', ' <small class="text-danger pl-3">', '</small> '); ?>
-             </div>
-         </div>
-
-        <!--<input type="hidden" name="status" class="form-control" id="status" value="0">
-     </div>  -->
-       
-<!-- 
-     <button type="submit" id="kirim" class="btn btn-primary btn-xl">Kirim</button>
-     <?= form_close(); ?>
-
-<hr> -->
 
      <div class="card-body">
       <!--  <form action="<?php echo base_url() . 'admin/memo/';  ?>" method="post"> -->
@@ -55,7 +29,7 @@
                 $no = 1;
                 foreach ($memo as $m) { ?>
                  <tr>
-                   <td><?php echo $no++ ?></td>
+                   <td><input type="hidden" name="id_memo" value="<?php echo $m->id_memo; ?>" class="form-control"><?php echo $no++ ?></td>
                    <td><?php echo $m->nama ?></td>
                    <td><?php echo $m->pesan ?></td>
 
@@ -118,3 +92,4 @@
         </div>
     </div>
 </div> 
+

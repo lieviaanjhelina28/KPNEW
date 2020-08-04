@@ -327,8 +327,8 @@ content_css:'//www.tiny.cloud/css/codepen.min.css'
                 url: baseurl+'admin/memo/memo_selesai',
                 data: datas,
                 dataType: 'JSON',
-                success: function(d){
-                  console.log(d);
+                success: function(c){
+                  console.log(c);
                   alert('data berhasil diubah');
                   location.reload();
                 }
@@ -351,10 +351,10 @@ content_css:'//www.tiny.cloud/css/codepen.min.css'
                 url: baseurl+'admin/memo/cektotalmemo',
                 // data: data,
                 dataType: 'JSON',
-                success: function(d){
+                success: function(c){
                   var dataterakhirmemo = $('#dataterakhirmemo').val();
                   // console.log(dataterakhir);
-                  if (d != dataterakhirmemo)  {
+                  if (c != dataterakhirmemo)  {
                      location.reload();
                     // console.log('beda');
                     // $('#example').dataTables().refresh();
@@ -368,20 +368,18 @@ content_css:'//www.tiny.cloud/css/codepen.min.css'
       }, 2000);
 
    }
- </script>
 
- <script>
       $(document).ready(function() {
           $.ajax({
              method: 'POST',
              url: baseurl+'admin/memo/memos',
              dataType: 'JSON',
-                success: function(d){
-                  // console.log(d);
+                success: function(c){
+                  // console.log(c);
                   
                   var memos = '';
-                  if (d.jumlah_memo > 0) {
-                    for (var b = 0; b < d.memo.length; b++) {
+                  if (c.jumlah_memo > 0) {
+                    for (var b = 0; b < c.memo.length; b++) {
                       memos += '<a class="dropdown-item d-flex align-items-center" href="#">'+
                       '<div class="mr-3">'+
                         '<div class="icon-circle bg-primary">'+
@@ -389,13 +387,13 @@ content_css:'//www.tiny.cloud/css/codepen.min.css'
                         '</div>'+
                       '</div>'+
                       '<div>'+
-                        '<div class="small text-bold-500">'+d.memo[b].nama+'</div>'+
-                        '<span class="font-weight-bold">'+d.memo[b].pesan+'</span>'+
+                        '<div class="small text-bold-500">'+c.memo[b].nama+'</div>'+
+                        '<span class="font-weight-bold">'+c.memo[b].pesan+'</span>'+
                       '</div>'+
                     '</a>';
                     }
                     $('#memo').html(memos);
-                    $(".memo").html(d.jumlah_memo);
+                    $(".memo").html(c.jumlah_memo);
                   }else{
                     $('#memo').html('tidak ada notifikasi');
                   }
