@@ -15,7 +15,7 @@
     <form action="<?php echo base_url().'admin/selesaimhs/';  ?>" method="post">
               <div class="table-responsive">
       
- <table class="table table-bordered" id="example3" width="100%" cellspacing="0">
+ <table class="table table-bordered" id="example" width="100%" cellspacing="0">
                   <thead>
                     <tr>
                 <th >No</th>
@@ -37,6 +37,7 @@
 
 
                       <td  onclick="javascript: return confirm('Anda yakin akan Menghapus? data yang sudah di hapus tidak bisa dikembalikan')"><?php echo anchor('Admin/selesaimemo/hapus/'.$si->id_memo, '<div class="btn btn-danger btn-sm">Hapus</div>');  ?></td>
+                      
 
                     </tr>
                     <?php } ?>

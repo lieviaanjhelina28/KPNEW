@@ -302,7 +302,7 @@ content_css:'//www.tiny.cloud/css/codepen.min.css'
 </script>
 
   <!-- MEMO -->
-
+<!-- 
     <script type="text/javascript">
  $(document).ready(function() {
     $('#example3').dataTable({
@@ -412,6 +412,6 @@ content_css:'//www.tiny.cloud/css/codepen.min.css'
       });
       
 
-    </script>
+    </script> -->
 
  </html>

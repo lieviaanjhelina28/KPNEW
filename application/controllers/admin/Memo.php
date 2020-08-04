@@ -18,11 +18,11 @@ class Memo extends CI_Controller
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 
 
-        $data['memo'] = $this->m_memo->tampildata();
-         $data['memo2'] = $this->m_memo->gabungann();
+        // $data['memo'] = $this->m_memo->tampildata();
+         // $data['memo2'] = $this->m_memo->gabungann();
 
-         // $data['memo3'] = $this->m_memo->getwhere('status',0,'memo')->result();
-        $data['bb'] = $this->m_memo->getwhere('status',0,'memo')->num_rows();
+         $data['memo'] = $this->m_memo->getwhere('status',0,'memo')->result();
+        // $data['bb'] = $this->m_memo->getwhere('status',0,'memo')->num_rows();
 
           $this->form_validation->set_rules('nama','nama','required|trim', [
 
@@ -86,49 +86,50 @@ class Memo extends CI_Controller
          $data['title'] = 'Selesai';
     $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 
-    // $id_mhs = $id;
-    // $where   = array('id_mhs' => $id_mhs);
+    $id_memo = $this->input->post('id_memo');;
+    $where   = array('id_memo' => $id_memo);
     $data    = $this->input->post();
-    // unset($data['id_mhs']);
-    $update   = array(
-        'status' => $this->input->post('status')
-    );
+    unset($data['id_memo']);
+    // $update   = array(
+    //     'status' => $this->input->post('status')
+    // );
     // $where = array ('id_mhs' => $id_mhs);
     // $this->m_memo->selesai($where, 'form_mahasiswa');
     //      $this->session->set_flashdata('message','<div class="alert alert-danger" role="alert">Data Sudah Selesai</div>');
-    $this->m_memo->update('id_memo',$data['id'],$update,'memo');
-    echo json_encode('success');
-    // redirect('admin/form_mahasiswa');
+    // $this->m_memo->update('id_memo',$data['id'],$update,'memo');
+    // echo json_encode('success');
+     $this->m_memo->update($where,$data,'memo');
+    redirect('admin/memo');
 }
 
- public function get_memo()
-    {
-        $this->db->select('COUNT(id_memo) as jumlah')->from('memo');
-        $this->db->where("status", 0);
-        $data = $this->db->get()->row_array();
-        echo json_encode($data);
-    }
+//  public function get_memo()
+//     {
+//         $this->db->select('COUNT(id_memo) as jumlah')->from('memo');
+//         $this->db->where("status", 0);
+//         $data = $this->db->get()->row_array();
+//         echo json_encode($data);
+//     }
 
-    public function memos()
-    {
-       $data['memo'] = $this->m_memo->limitmemo();
-       $data['jumlah_memo'] = $this->m_memo->gabungann()->num_rows();
-       echo json_encode($data);
-    }
+//     public function memos()
+//     {
+//        $data['memo'] = $this->m_memo->limitmemo();
+//        $data['jumlah_memo'] = $this->m_memo->gabungann()->num_rows();
+//        echo json_encode($data);
+//     }
 
-public function cektotalmemo()
-{
-    $data = $this->m_memo->getwhere('status',0,'memo')->num_rows();
-    // print_r($data); 
-    echo json_encode($data);
-}
+// public function cektotalmemo()
+// {
+//     $data = $this->m_memo->getwhere('status',0,'memo')->num_rows();
+//     // print_r($data); 
+//     echo json_encode($data);
+// }
 
-public function cekseluruhmemo()
-{
-    $data = $this->m_memo->getwhere('status',0,'memo')->row_array();
-    // print_r($data); 
-    echo json_encode($data);
-}
+// public function cekseluruhmemo()
+// {
+//     $data = $this->m_memo->getwhere('status',0,'memo')->row_array();
+//     // print_r($data); 
+//     echo json_encode($data);
+// }
 
 }
 

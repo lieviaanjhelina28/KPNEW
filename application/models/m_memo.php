@@ -5,11 +5,13 @@ class M_memo extends CI_model{
 
     public function tampildata()
     {
-      $query = $this->db->select("*")
-        ->from('memo')
-        ->order_by('id_memo', 'ASC')
-        ->get();
-        return $query->result();
+      // $query = $this->db->select("*")
+      //   ->from('memo')
+      //   ->order_by('id_memo', 'DESC')
+      //   ->get();
+      //   return $query->result();
+       return $this->db->get('memo');
+
     }
 
     public function input_data($data,$table)
@@ -23,38 +25,53 @@ class M_memo extends CI_model{
          $this->db->delete($table);
     }
 
-     public function gabungann()
-    {
-      $this->db->select('*');
-      $this->db->from('user');
-      $this->db->join('memo','memo.user_id=user.id_user');
-      $this->db->order_by('id_memo','DESC');
-      $query = $this->db->get();
-      return $query;
-    }
-
-     public function limitmemo()
-    {
-      $this->db->select('*');
-      $this->db->from('user');
-      $this->db->join('memo','memo.user_id=user.id_user');
-      $this->db->order_by('memo.id_memo','DESC');
-      $this->db->limit(2);
-      $query = $this->db->get();
-      return $query->result();
-    }
-
-      public function getwhere($field,$where,$table)
+     public function getwhere($field,$where,$table)
     {
       $this->db->where($field,$where);
       $query = $this->db->get($table);
       return $query; 
     }
 
-    public function update($field,$where,$data,$table)
+    public function update($where,$data,$table)
     {
-        $this->db->where($field,$where);
+        $this->db->where($where);
         $this->db->update($table,$data);
     }
+
+
+
+    //  public function gabungann()
+    // {
+    //   $this->db->select('*');
+    //   $this->db->from('user');
+    //   $this->db->join('memo','memo.user_id=user.id_user');
+    //   $this->db->order_by('id_memo','DESC');
+    //   $query = $this->db->get();
+    //   return $query;
+    // }
+
+    //  public function limitmemo()
+    // {
+    //   $this->db->select('*');
+    //   $this->db->from('user');
+    //   $this->db->join('memo','memo.user_id=user.id_user');
+    //   $this->db->order_by('memo.id_memo','DESC');
+    //   $this->db->limit(2);
+    //   $query = $this->db->get();
+    //   return $query->result();
+    // }
+
+    //   public function getwhere($field,$where,$table)
+    // {
+    //   $this->db->where($field,$where);
+    //   $query = $this->db->get($table);
+    //   return $query; 
+    // }
+
+    // public function update($field,$where,$data,$table)
+    // {
+    //     $this->db->where($field,$where);
+    //     $this->db->update($table,$data);
+    // }
 
 }
