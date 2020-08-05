@@ -46,15 +46,18 @@ class Tambah extends CI_Controller
                 
             ];
 
+            // var_dump($data);
+            // die;
+
             $this->m_tambah->input_data($data,'user');
             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Surat berhasil ditambah!</div>');
             redirect('admin/tambah');
     }
-    public function hapus($id_surat)
+    public function hapus($id_user)
         {
-            $where = array('id_surat' => $id_surat);
-            $this->m_surat->hapus_data($where, 'surat');
+            $where = array('id_user' => $id_user);
+            $this->m_tambah->hapus_data($where, 'user');
             $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Data Berhasil di Hapus</div>');
-            redirect('admin/surat');
+            redirect('admin/tambah');
         }
 }

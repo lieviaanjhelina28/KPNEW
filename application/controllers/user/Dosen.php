@@ -64,7 +64,7 @@ class Dosen extends CI_Controller
             'kebutuhan'      => $kebutuhan,
             'keperluan'      => $keperluan,
             'file'           => $file,
-            // 'petugas'        => $this->session->userdata('id_user', 1),
+            'petugas'        => $petugas,
 
 
         );

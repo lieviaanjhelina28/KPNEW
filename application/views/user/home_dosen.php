@@ -19,7 +19,7 @@
                  <th>NIK</th>
                  <th>Keperluan</th>
                  <th>Download File</th>
-                 <!-- <th>Petugas yang Mengerjakan</th> -->
+                 <th>Petugas yang Mengerjakan</th>
                  <th>Status</th>
                </tr>
              </thead>

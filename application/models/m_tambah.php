@@ -8,11 +8,16 @@ class M_tambah extends CI_model
 
     public function tampildata()
     {
-        $query = $this->db->select('*')
-            ->from('user')
-            ->order_by('id_user', 'ASC')
-            ->get();
-        return $query->result();
+        // $query = $this->db->select('*')
+        //     ->from('user')
+        //     ->order_by('id_user', 'ASC')
+        //     ->get();
+        // return $query->result();
+
+      $data = "SELECT * FROM user 
+      JOIN user_role ON user.role_id = user_role.id";
+      return $this->db->query($data)->result();
+
     }
 
      public function input_data($data, $table)

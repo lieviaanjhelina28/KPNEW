@@ -30,7 +30,7 @@
                   <th>NIK</th>
                   <th>NPM</th>
                   <th>Role</th>
-                  <th>Status</th>
+<!--                   <th>Status</th> -->
                   <th>Action</th>
 
                 </tr>
@@ -45,12 +45,12 @@
                      <td><?php echo $t->email?></td>
                      <td><?php echo $t->NIK?></td>
                      <td><?php echo $t->NPM?></td>
-                     <td><?php echo $t->role_id?></td>
-                     <td><?php echo $t->aktif?></td>
+                     <td><?php echo $t->role?></td>
+                     <!-- <td><?php echo $t->aktif?></td> -->
                      
               
 
-                    <td><?php echo anchor('admin/surat/hapus/' . $t->id_user, '<div class="btn btn-danger btn-sm">Hapus</div>');  ?></td>
+                    <td><?php echo anchor('admin/tambah/hapus/' . $t->id_user, '<div class="btn btn-danger btn-sm">Hapus</div>');  ?></td>
                   </tr>
                 <?php } ?>
               </tbody>
@@ -102,7 +102,7 @@
                       <select name="role_id" id="role_id" class="form-control">
                             <option value="">Pilih Role</option>
                             <?php foreach ($user_role as $ur) : ?>
-                            <option value="<?php echo $ur->role; ?>"><?php echo $ur->role; ?></option>
+                            <option value="<?php echo $ur->id; ?>"><?php echo $ur->role; ?></option>
                             <?php endforeach; ?>
                         </select>
                     </div>
@@ -112,7 +112,7 @@
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" value="1" name="aktif" id="aktif" checked>
                             <label class="form-check-label" for="aktif">
-                                Status
+                                Aktif
                             </label>
                         </div>
                     </div>

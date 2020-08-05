@@ -157,7 +157,7 @@
               Memo
             </a> 
       <!--     </div> -->
-          <!--   <div class="dropdown-divider"></div>
+        <!--   <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="<?php echo base_url('admin/tambah'); ?>">
               <i class="fas fa-book fa-sm fa-fw mr-2 text-gray-400"></i>
               Tambah User
