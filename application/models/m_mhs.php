@@ -68,6 +68,14 @@ class M_mhs extends CI_model
         $query = $this->db->get();
         return $query;
     }
+
+    // nampilin nama admin di halaman status user
+    //   public function b()
+    // {
+    //   $data = "SELECT * FROM form_mahasiswa 
+    //   JOIN user ON form_mahasiswa.petugas = user.user_id";
+    //   return $this->db->query($data)->result();
+    // }
 }
 
 //     public function get_all()

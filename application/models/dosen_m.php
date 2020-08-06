@@ -24,6 +24,13 @@ class dosen_m  extends CI_Model
             return $q->id_dosen;
         }
     }
+
+    public function g()
+    {
+      $data = "SELECT form_dosen.*, user.nama as nama, user.id_user as id_user FROM form_dosen 
+      LEFT JOIN user ON form_dosen.petugas = user.id_user";
+      return $this->db->query($data)->result();
+    }
 }
 
 

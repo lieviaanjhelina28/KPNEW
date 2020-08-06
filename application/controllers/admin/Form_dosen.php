@@ -162,7 +162,12 @@
                 'status' => $status,
 
             );
-            $this->m_dosen->update('id_dosen', $id, $update, 'form_dosen');
+
+             $update_dosen   = array(
+                'status' => $status,
+                'petugas' => $this->session->userdata('id_user')
+            );
+            $this->m_dosen->update('id_dosen', $id, $update_dosen, 'form_dosen');
             $this->m_dosen->update('dosen_id', $id, $update, 'notif');
 
 

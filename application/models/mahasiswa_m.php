@@ -26,6 +26,13 @@ class Mahasiswa_m extends CI_Model
             return $q->id_mhs;
         }
     }
+
+      public function b()
+    {
+      $data = "SELECT form_mahasiswa.*, user.nama as nama, user.id_user as id_user FROM form_mahasiswa 
+      LEFT JOIN user ON form_mahasiswa.petugas = user.id_user";
+      return $this->db->query($data)->result();
+    }
 }
 
 

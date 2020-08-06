@@ -18,6 +18,11 @@ class H_dosen extends CI_Controller
 	{
 		$data['title'] = 'Halaman Awal';
 		$data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+		$data['tabel'] = $this->dosen_m->g();
+
+		// echo "<pre>";
+		// print_r($data['tabel']);
+		// echo "</pre>";
 
 		$this->load->view('templates/header', $data);
 		$this->load->view('templates/sidebar', $data);

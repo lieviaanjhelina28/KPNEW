@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 04, 2020 at 06:05 AM
+-- Generation Time: Aug 06, 2020 at 02:18 AM
 -- Server version: 10.3.16-MariaDB
 -- PHP Version: 7.3.6
 
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `kpmaster`
+-- Database: `kpmaster2`
 --
 
 -- --------------------------------------------------------
@@ -39,8 +39,8 @@ CREATE TABLE `form_dosen` (
   `file_admin` varchar(50) NOT NULL,
   `petugas` varchar(30) DEFAULT NULL,
   `status` int(1) NOT NULL,
-  `created_at` datetime NOT NULL,
-  `updated_at` datetime NOT NULL
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -48,8 +48,7 @@ CREATE TABLE `form_dosen` (
 --
 
 INSERT INTO `form_dosen` (`id_dosen`, `user_id`, `nama_dosen`, `NIK`, `kebutuhan`, `keperluan`, `file`, `file_admin`, `petugas`, `status`, `created_at`, `updated_at`) VALUES
-(1, 66, 'lala', '410100566', 'Surat Tugas', 'Tugas Negara', '24-124-3-PB.pdf', '13298-37227-1-PB.pdf', NULL, 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2, 66, 'lala', '410100566', 'Surat Tugas', 'iiiii', '5404-16505-1-PB.pdf', '', NULL, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+(1, 78, 'lala', '410100544', 'Surat Tugas', 'Tugas Negara', 'surat-pernyataan_sertifikasi_2.docx', 'db.pdf', '76', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -71,17 +70,17 @@ CREATE TABLE `form_mahasiswa` (
   `tgl_selesai` date NOT NULL,
   `status` int(1) NOT NULL,
   `file` varchar(30) NOT NULL,
-  `created_at` datetime NOT NULL,
-  `updated_at` datetime NOT NULL
+  `petugas` varchar(30) NOT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `form_mahasiswa`
 --
 
-INSERT INTO `form_mahasiswa` (`id_mhs`, `user_id`, `nama_mahasiswa`, `tempat_lahir`, `tanggal_lahir`, `NPM`, `semester`, `kebutuhan`, `keperluan`, `tgl_input`, `tgl_selesai`, `status`, `file`, `created_at`, `updated_at`) VALUES
-(1, 69, 'Lievia Anjhelina Maharani', 'Bogor', '1998-08-28', '161105150552', '8', 'Transkrip Nilai atau FHS Semester', 'Sidang Skripsi', '2020-08-03', '2020-08-05', 1, '13298-37227-1-PB.pdf', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(2, 69, 'Lievia Anjhelina Maharani', 'Bogor', '1998-08-28', '161105150552', '8', 'Dokumen Sidang Skripsi', 'SKRIPSI', '2020-08-03', '2020-08-05', 0, '', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+INSERT INTO `form_mahasiswa` (`id_mhs`, `user_id`, `nama_mahasiswa`, `tempat_lahir`, `tanggal_lahir`, `NPM`, `semester`, `kebutuhan`, `keperluan`, `tgl_input`, `tgl_selesai`, `status`, `file`, `petugas`, `created_at`, `updated_at`) VALUES
+(1, 77, 'Lievia Anjhelina Maharani', 'Bogor', '1998-08-28', '161105150552', '8', 'Surat Keterangan Aktif', 'Keperluan Tertentu', '2020-08-06', '2020-08-08', 1, 'FKIP.pdf', '76', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -95,8 +94,8 @@ CREATE TABLE `memo` (
   `nama` varchar(30) NOT NULL,
   `pesan` text NOT NULL,
   `status` int(1) NOT NULL,
-  `created_at` datetime NOT NULL,
-  `updated_at` datetime NOT NULL
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -104,7 +103,7 @@ CREATE TABLE `memo` (
 --
 
 INSERT INTO `memo` (`id_memo`, `user_id`, `nama`, `pesan`, `status`, `created_at`, `updated_at`) VALUES
-(28, 68, 'oliv', '<p>hhhh</p>', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+(30, 76, 'anjhel', '<p>ggggggggggggg</p>', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -120,8 +119,8 @@ CREATE TABLE `notif` (
   `dosen_id` int(1) DEFAULT NULL,
   `pesan` text NOT NULL,
   `status` int(1) NOT NULL,
-  `created_at` datetime NOT NULL,
-  `updated_at` datetime NOT NULL
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -129,10 +128,8 @@ CREATE TABLE `notif` (
 --
 
 INSERT INTO `notif` (`id_notif`, `user_id`, `nama`, `mhs_id`, `dosen_id`, `pesan`, `status`, `created_at`, `updated_at`) VALUES
-(216, 66, 'lala', NULL, 1, 'Surat Tugas', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(217, 69, 'Lievia Anjhelina Maharani', 1, NULL, 'Transkrip Nilai atau FHS Semester', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(218, 69, 'Lievia Anjhelina Maharani', 2, NULL, 'Dokumen Sidang Skripsi', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(219, 66, 'lala', NULL, 2, 'Surat Tugas', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+(227, 78, 'lala', NULL, 1, 'Surat Tugas', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(228, 77, 'Lievia Anjhelina Maharani', 1, NULL, 'Surat Keterangan Aktif', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -144,8 +141,8 @@ CREATE TABLE `surat` (
   `id_surat` int(11) NOT NULL,
   `nama_surat` varchar(50) NOT NULL,
   `role_id` int(1) NOT NULL,
-  `created_at` datetime NOT NULL,
-  `updated_at` datetime NOT NULL
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -166,8 +163,8 @@ INSERT INTO `surat` (`id_surat`, `nama_surat`, `role_id`, `created_at`, `updated
 CREATE TABLE `surat2` (
   `id_suratmhs` int(11) NOT NULL,
   `surat_mhs` varchar(50) NOT NULL,
-  `created_at` datetime NOT NULL,
-  `updated_at` datetime NOT NULL
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -198,8 +195,8 @@ CREATE TABLE `user` (
   `role_id` int(1) NOT NULL,
   `aktif` int(1) NOT NULL,
   `dibuat` int(1) NOT NULL,
-  `created_at` datetime NOT NULL,
-  `updated_at` datetime NOT NULL
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -207,11 +204,11 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id_user`, `nama`, `email`, `NPM`, `NIK`, `password`, `role_id`, `aktif`, `dibuat`, `created_at`, `updated_at`) VALUES
-(66, 'lala', 'lala28nana@gmail.com', '', '410100566', '$2y$10$VIA0pS2hZMST4r1.uL32duFfkh/jRu0VRAtTcTpgF83mUuKYk.cP.', 3, 1, 1596118255, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(67, 'anjhel', 'lieviaaaaaanm@gmail.com', '', '', '$2y$10$AECZ3MX/g.fr3ruSXlqTY.xoKtUV6XmR7lCgUWeY6nQwlwkUNuF/q', 1, 1, 1596118471, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(68, 'oliv', 'oolive697@gmail.com', '', '', '$2y$10$ho2cqZoxhKl3x6XpZc5wHuCTqrc20a0F1HnRgEUu7Qw5T6Ucx/6VO', 1, 1, 1596118654, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(69, 'Lievia Anjhelina Maharani', 'lieviaanjhelinam28@gmail.com', '161105150552', '', '$2y$10$CllvmnM.pKidFSDy6mPKkuzmENJzH1UrJLnfnDwEhfQKNPhkg08MK', 2, 1, 1596119045, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(73, 'Shavia Huriah Arumdapta', 'shaviahuriyaharumdapta@gmail.com', '201105150556', '', '$2y$10$i4HXvQ/FxOSRXQXjSerYZOM/BwZXfF73GiHf8ugIb7xTnMwv4CU0e', 2, 1, 1596386180, '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+(73, 'Shavia Huriah Arumdapta', 'shaviahuriyaharumdapta@gmail.com', '201105150556', '', '$2y$10$i4HXvQ/FxOSRXQXjSerYZOM/BwZXfF73GiHf8ugIb7xTnMwv4CU0e', 2, 1, 1596386180, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(75, 'oliv', 'oolive697@gmail.com', '', '', '$2y$10$FDqpQ/5mYrT/0ENeQdsnq.SBzShYlGeaNfOzIfQ1Y3dtFhYOJZlru', 1, 1, 1596670379, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(76, 'anjhel', 'lieviaaaaaanm@gmail.com', '', '', '$2y$10$7EDp/PnY9/M0coxGAEyX8eJWWsPuRbdz6.WPgHMIXz9Tz72QhFa2S', 1, 1, 1596670540, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(77, 'Lievia Anjhelina Maharani', 'lieviaanjhelinam28@gmail.com', '161105150552', '', '$2y$10$4EokHIoRBdwjoKZJn5e2MeST0KR.AATDcj471TOYFEIXl8v41/FM6', 2, 1, 1596671217, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(78, 'lala', 'lala28nana@gmail.com', '', '410100544', '$2y$10$WpNDVZgZvMUHEHGm9YiPG.MZR5XdJLsd3Cx4orpJlQs5SbKXaVy82', 3, 1, 1596671459, '0000-00-00 00:00:00', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -223,8 +220,8 @@ CREATE TABLE `user_access_menu` (
   `id_access` int(1) NOT NULL,
   `role_id` int(1) NOT NULL,
   `menu_id` int(1) NOT NULL,
-  `created_at` datetime NOT NULL,
-  `updated_at` datetime NOT NULL
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -246,8 +243,8 @@ INSERT INTO `user_access_menu` (`id_access`, `role_id`, `menu_id`, `created_at`,
 CREATE TABLE `user_menu` (
   `id_menu` int(1) NOT NULL,
   `menu` varchar(15) NOT NULL,
-  `created_at` datetime NOT NULL,
-  `updated_at` datetime NOT NULL
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -269,8 +266,8 @@ INSERT INTO `user_menu` (`id_menu`, `menu`, `created_at`, `updated_at`) VALUES
 CREATE TABLE `user_role` (
   `id` int(1) NOT NULL,
   `role` varchar(10) NOT NULL,
-  `created_at` datetime NOT NULL,
-  `updated_at` datetime NOT NULL
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -295,8 +292,8 @@ CREATE TABLE `user_sub_menu` (
   `url` varchar(30) NOT NULL,
   `icon` varchar(30) NOT NULL,
   `aktif` int(1) NOT NULL,
-  `created_at` datetime NOT NULL,
-  `updated_at` datetime NOT NULL
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -324,8 +321,8 @@ CREATE TABLE `user_token` (
   `email` varchar(50) NOT NULL,
   `token` varchar(128) NOT NULL,
   `dibuat` int(1) NOT NULL,
-  `created_at` datetime NOT NULL,
-  `updated_at` datetime NOT NULL
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -350,8 +347,7 @@ ALTER TABLE `form_mahasiswa`
 -- Indexes for table `memo`
 --
 ALTER TABLE `memo`
-  ADD PRIMARY KEY (`id_memo`),
-  ADD KEY `user_id` (`user_id`);
+  ADD PRIMARY KEY (`id_memo`);
 
 --
 -- Indexes for table `notif`
@@ -434,13 +430,13 @@ ALTER TABLE `form_mahasiswa`
 -- AUTO_INCREMENT for table `memo`
 --
 ALTER TABLE `memo`
-  MODIFY `id_memo` int(1) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id_memo` int(1) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT for table `notif`
 --
 ALTER TABLE `notif`
-  MODIFY `id_notif` int(1) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=220;
+  MODIFY `id_notif` int(1) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=229;
 
 --
 -- AUTO_INCREMENT for table `surat`
@@ -458,7 +454,7 @@ ALTER TABLE `surat2`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(1) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=74;
+  MODIFY `id_user` int(1) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=79;
 
 --
 -- AUTO_INCREMENT for table `user_access_menu`
@@ -488,54 +484,17 @@ ALTER TABLE `user_sub_menu`
 -- AUTO_INCREMENT for table `user_token`
 --
 ALTER TABLE `user_token`
-  MODIFY `id_token` int(1) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
+  MODIFY `id_token` int(1) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
 
 --
 -- Constraints for dumped tables
 --
 
 --
--- Constraints for table `form_dosen`
---
-ALTER TABLE `form_dosen`
-  ADD CONSTRAINT `form_dosen_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id_user`);
-
---
--- Constraints for table `form_mahasiswa`
---
-ALTER TABLE `form_mahasiswa`
-  ADD CONSTRAINT `form_mahasiswa_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id_user`);
-
---
--- Constraints for table `memo`
---
-ALTER TABLE `memo`
-  ADD CONSTRAINT `memo_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id_user`);
-
---
--- Constraints for table `notif`
---
-ALTER TABLE `notif`
-  ADD CONSTRAINT `notif_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id_user`);
-
---
 -- Constraints for table `user`
 --
 ALTER TABLE `user`
   ADD CONSTRAINT `user_ibfk_1` FOREIGN KEY (`role_id`) REFERENCES `user_role` (`id`);
-
---
--- Constraints for table `user_access_menu`
---
-ALTER TABLE `user_access_menu`
-  ADD CONSTRAINT `user_access_menu_ibfk_1` FOREIGN KEY (`role_id`) REFERENCES `user_role` (`id`),
-  ADD CONSTRAINT `user_access_menu_ibfk_2` FOREIGN KEY (`menu_id`) REFERENCES `user_menu` (`id_menu`);
-
---
--- Constraints for table `user_sub_menu`
---
-ALTER TABLE `user_sub_menu`
-  ADD CONSTRAINT `user_sub_menu_ibfk_1` FOREIGN KEY (`menu_id`) REFERENCES `user_menu` (`id_menu`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

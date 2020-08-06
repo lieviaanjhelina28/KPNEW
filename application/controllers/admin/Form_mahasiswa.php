@@ -143,7 +143,12 @@
                 'status' => $status,
 
             );
-            $this->m_mhs->update('id_mhs', $id, $update, 'form_mahasiswa');
+              $update_mhs   = array(
+                'status' => $status,
+                'petugas' => $this->session->userdata('id_user')
+            );
+
+            $this->m_mhs->update('id_mhs', $id, $update_mhs, 'form_mahasiswa');
             $this->m_mhs->update('mhs_id', $id, $update, 'notif');
 
 

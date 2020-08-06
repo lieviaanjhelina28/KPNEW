@@ -17,6 +17,7 @@ class H_mhs extends CI_Controller
 	{
 		$data['title'] = 'Halaman Awal';
 		$data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+		$data['tabel2'] = $this->mahasiswa_m->b();
 
 		$this->load->view('templates/header', $data);
 		$this->load->view('templates/sidebar', $data);

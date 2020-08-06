@@ -25,37 +25,25 @@
              </thead>
              <tbody>
                <?php
-                $no = 0;
-                $NIK = $this->session->userdata('NIK');
-                $verifikasi = $this->db->get_where('form_dosen', array('NIK' => $NIK))->result();
-                if ($verifikasi > 0) {
-                  foreach ($verifikasi as $vf) {
-                    $no++;
-                    echo "
+                $no = 1;
+                // $NIK = $this->session->userdata('NIK');
+                // $tabel = $this->db->get_where('form_dosen', array('NIK' => $NIK))->result();
+                foreach ($tabel as $vf) {?>
                 <tr>
-                <td>$no</td>
-                <td>$vf->nama_dosen</td>
-                <td>$vf->NIK</td>
-                <td>$vf->kebutuhan</td>
-                 <td>" . anchor('user/H_dosen/download/' . $vf->file_admin, 'Download', array('class' => 'btn btn-primary btn-sm')) . "</td>";
-                    if ($vf->status < 1) {
+                  <td><?php echo $no++;?></td>
+                  <td><?php echo $vf->nama_dosen;?></td>
+                  <td><?php echo $vf->NIK;?></td>
+                  <td><?php echo $vf->kebutuhan;?></td>
+                  <td><a href="<?php echo base_url().'user/H_dosen/download/'.$vf->file_admin;?>" class="btn btn-primary btn-sm">Download</a></td>
+                  <td><?php echo $vf->nama?></td>
+                    <?php if ($vf->status < 1) {
                       echo "<td><label class='badge badge-danger'>Menunggu </label></td>
                         </tr>";
                     } else {
                       echo "<td><label class='badge badge-info'>Selesai</label></td>
                         </tr>";
-                    }
-                  }
-                } else {
-                  echo "<tr>
-                                    <td>" . $this->session->userdata('nama_dosen') . "</td>
-                                    <td>" . $this->session->userdata('NIK') . "</td>
-                                   <td>ANDA BELUM MENGAJUKAN SURAT</td>";
-                  echo "<td>TIDAK ADA</td>
-                                 <td>TIDAK ADA</td>
-                               </tr>";
-                }
-                ?>
+                    }?>
+                  <?php }?>
              </tbody>
            </table>
        </form>

@@ -18,38 +18,33 @@
                  <th>Nama</th>
                  <th>NPM</th>
                  <th>Kebutuhan</th>
-                 <!-- 
-                      <th>Tanggal Pengajuan</th> -->
                  <th>Download File</th>
+                 <th>Petugas yang mengerjakan</th>
                  <th>Status</th>
                </tr>
              </thead>
              <tbody>
                <?php
-                $no = 0;
+               $no = 1;
                 $NPM = $this->session->userdata('NPM');
-                $verifikasi = $this->db->get_where('form_mahasiswa', array('NPM' => $NPM))->result();
-                if ($verifikasi > 0) {
-                  foreach ($verifikasi as $vf) {
-                    $no++;
-                    echo "
+                // $verifikasi = $this->db->get_where('form_mahasiswa', array('NPM' => $NPM))->result();
+                // if ($verifikasi > 0) {
+                  foreach ($tabel2 as $vf) { ?>
                 <tr>
-                <td>$no</td>
-                <td>$vf->nama_mahasiswa</td>
-                <td>$vf->NPM</td>
-                <td>$vf->kebutuhan</td>
-                <td>" . anchor('user/H_mhs/download/' . $vf->file, 'Download', array('class' => 'btn btn-primary btn-sm')) . "</td>";
-
-                    if ($vf->status < 1) {
-                      echo "<td><label class='badge badge-danger '>Menunggu </label></td>
+                <td><?php echo $no++;?></td>
+                <td><?php echo $vf->nama_mahasiswa;?></td>
+                <td><?php echo $vf->NPM;?></td>
+                <td><?php echo $vf->kebutuhan;?></td>
+                 <td><a href="<?php echo base_url().'user/H_mhs/download/'.$vf->file;?>" class="btn btn-primary btn-sm">Download</a></td>
+                   <td><?php echo $vf->nama?></td>
+                 <?php if ($vf->status < 1) {
+                      echo "<td><label class='badge badge-danger'>Menunggu </label></td>
                         </tr>";
                     } else {
                       echo "<td><label class='badge badge-info'>Selesai</label></td>
                         </tr>";
-                    }
-                  }
-                }
-                ?>
+                    }?>
+                  <?php }?>
 
 
 

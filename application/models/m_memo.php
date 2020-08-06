@@ -38,6 +38,13 @@ class M_memo extends CI_model{
         $this->db->update($table,$data);
     }
 
+      public function m()
+    {
+      $data = "SELECT memo.*, user.nama as nama, user.id_user as id_user FROM memo 
+      LEFT JOIN user ON memo.admin = user.id_user";
+      return $this->db->query($data)->result();
+    }
+
 
 
     //  public function gabungann()

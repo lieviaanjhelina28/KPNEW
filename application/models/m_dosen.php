@@ -76,4 +76,12 @@ class M_dosen extends CI_model
         $query = $this->db->get();
         return $query;
     }
+
+    // nampilin nama admin di halaman status user
+    // public function g()
+    // {
+    //   $data = "SELECT * FROM user 
+    //   JOIN form_dosen ON user.id_user = form_dosen.user_id";
+    //   return $this->db->query($data)->result();
+    // }
 }
