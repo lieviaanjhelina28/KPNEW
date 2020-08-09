@@ -19,7 +19,7 @@
                  <th>NPM</th>
                  <th>Kebutuhan</th>
                  <th>Download File</th>
-                 <th>Petugas yang mengerjakan</th>
+                 <th>TU yang mengerjakan</th>
                  <th>Status</th>
                </tr>
              </thead>

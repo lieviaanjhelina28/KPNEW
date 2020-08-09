@@ -9,7 +9,7 @@
 
 
      <div class="card-body">
-       <form action="<?php echo base_url() . 'admin/memo/memo_selesai/';  ?>" method="post"> 
+<!-- <form action="<?php echo base_url() . 'admin/memo/memo_selesai/';  ?>" method="post">  -->
 
         <a href="" class="btn btn-primary" data-toggle="modal" data-target="#newSubMenuModal">Tambah Pesan</a>
          <div class="table-responsive">
@@ -21,7 +21,7 @@
                  <th>Nama</th>
                  <th>Pesan</th>
                  <th>Status</th>
-                 <th>Action</th>
+              <!--    <th>Action</th> -->
                </tr>
              </thead>
              <tbody>
@@ -29,28 +29,28 @@
                 $no = 1;
                 foreach ($memo as $m) { ?>
                  <tr>
-                   <td><input type="hidden" name="id_memo" value="<?php echo $m->id_memo; ?>" class="form-control"><?php echo $no++ ?></td>
+                   <td><?php echo $no++ ?></td>
                    <td><?php echo $m->nama ?></td>
                    <td><?php echo $m->pesan ?></td>
 
                        <td>
-                  <select name="status">
+                  <select name="status" class="status" data-id="<?php echo $m->id_memo;?>">
                     <option value="0">Belum</option>
                     <option value="1">Selesai</option>
                   </select>
                 </td>
 
                   <!--  <td onclick="javascript: return confirm('Anda yakin akan Menghapus? data yang sudah di hapus tidak bisa dikembalikan')"><?php echo anchor('Admin/memo/hapus/' . $m->id_memo, '<div class="btn btn-danger btn-sm">Hapus</div>');  ?> -->
-      <td>
+    <!--   <td>
                     <input type="submit" value="Simpan" class="btn btn-success btn-sm">
-                   </td>
+                   </td> -->
 
                  </tr>
                <?php } ?>
              </tbody>
            </table>
-       </form>
-        <!--  <input id="dataterakhirmemo" value="<?php echo $bb ?>" hidden> -->
+<!--        </form> -->
+         <input id="dataterakhirmemo" value="<?php echo $bb ?>" hidden>
      </div>
    </div>
  </div>

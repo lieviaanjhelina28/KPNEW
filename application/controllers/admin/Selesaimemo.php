@@ -24,6 +24,7 @@ class Selesaimemo extends CI_Controller
      // $data['selesaimahasiswa'] = $this->m_mahasiswa->selesai()->result();
 
       $data['selesai'] = $this->m_memo->getwhere('status',1,'memo')->result();
+      
 
         $this->load->view('templates/header',$data);
         $this->load->view('templates/sidebar',$data);
@@ -43,7 +44,9 @@ class Selesaimemo extends CI_Controller
     $where = array ('id_memo' => $id_memo);
     $this->m_memo->hapus_data($where, 'memo');
          $this->session->set_flashdata('message','<div class="alert alert-danger" role="alert">Data Berhasil dihapus</div>');
-    redirect('admin/vmemoselesai');
+    redirect('admin/selesaimemo');
    
 }
+
+
 }

@@ -99,16 +99,16 @@
         </li>
 
         <!-- memo -->
-<!-- <li class="nav-item dropdown no-arrow mx-1">
+<li class="nav-item dropdown no-arrow mx-1">
           <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class="fas fa-book fa-fw"></i>
- -->
+
             <!-- Counter - Alerts -->
 
-           <!--  <span class="badge badge-danger badge-counter notif"></span>
-          </a> -->
+            <span class="badge badge-danger badge-counter memo"></span>
+          </a>
           <!-- Dropdown - Alerts -->
-        <!--   <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="alertsDropdown" style="height: auto; overflow-y: auto;">
+          <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="alertsDropdown" style="height: auto; overflow-y: auto;">
             <h6 class="dropdown-header">
               Memo
             </h6>
@@ -128,7 +128,7 @@
            
                 <a class="dropdown-item text-center small text-gray-500" href="<?php echo base_url('admin/memo') ?>">Read More Memo</a>
               </div>
-            </li> -->
+            </li>
 
         <div class="topbar-divider d-none d-sm-block"></div>
 
@@ -151,11 +151,11 @@
             </a>
             <div class="dropdown-divider"></div>
             
-            <a class="dropdown-item" href="<?php echo base_url('admin/memo'); ?>">
+           <!--  <a class="dropdown-item" href="<?php echo base_url('admin/memo'); ?>"> -->
              <!--  <div id="memo"> -->
-              <i class="fas fa-book fa-sm fa-fw mr-2 text-gray-400"></i>
+           <!--    <i class="fas fa-book fa-sm fa-fw mr-2 text-gray-400"></i>
               Memo
-            </a> 
+            </a>  -->
       <!--     </div> -->
         <!--   <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="<?php echo base_url('admin/tambah'); ?>">

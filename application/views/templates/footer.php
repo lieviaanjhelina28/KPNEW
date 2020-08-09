@@ -302,8 +302,7 @@ content_css:'//www.tiny.cloud/css/codepen.min.css'
 </script>
 
   <!-- MEMO -->
-<!-- 
-    <script type="text/javascript">
+<script type="text/javascript">
  $(document).ready(function() {
     $('#example3').dataTable({
         "bPaginate": true,
@@ -318,17 +317,17 @@ content_css:'//www.tiny.cloud/css/codepen.min.css'
       // console.log(window.location.href);
       $('.status').on('change',function(){
           if (confirm('Apakah Anda setuju mengubah status ?')) {
-            var datas = {
-              status : $(this).val(),
-              id: $(this).data('id')
-            }
+            // var datas = {
+            //   status : $(this).val(),
+            //   id: $(this).data('id')
+            // }
             $.ajax({
                 method: 'POST',
-                url: baseurl+'admin/memo/memo_selesai',
-                data: datas,
+                url: baseurl+'admin/memo/memo_selesai/'  + $(this).data('id') + '/' + $(this).val(), 
+                // data: datas,
                 dataType: 'JSON',
-                success: function(c){
-                  console.log(c);
+                success: function(d){
+                  console.log(d);
                   alert('data berhasil diubah');
                   location.reload();
                 }
@@ -351,10 +350,10 @@ content_css:'//www.tiny.cloud/css/codepen.min.css'
                 url: baseurl+'admin/memo/cektotalmemo',
                 // data: data,
                 dataType: 'JSON',
-                success: function(c){
+                success: function(d){
                   var dataterakhirmemo = $('#dataterakhirmemo').val();
-                  // console.log(dataterakhir);
-                  if (c != dataterakhirmemo)  {
+                  // console.log(dataterakhirmemo);
+                  if (d != dataterakhirmemo)  {
                      location.reload();
                     // console.log('beda');
                     // $('#example').dataTables().refresh();
@@ -365,53 +364,53 @@ content_css:'//www.tiny.cloud/css/codepen.min.css'
                 }
             });
 
-      }, 2000);
+      }, 1000);
 
    }
+ </script>
 
-      $(document).ready(function() {
-          $.ajax({
-             method: 'POST',
-             url: baseurl+'admin/memo/memos',
-             dataType: 'JSON',
-                success: function(c){
-                  // console.log(c);
-                  
-                  var memos = '';
-                  if (c.jumlah_memo > 0) {
-                    for (var b = 0; b < c.memo.length; b++) {
-                      memos += '<a class="dropdown-item d-flex align-items-center" href="#">'+
-                      '<div class="mr-3">'+
-                        '<div class="icon-circle bg-primary">'+
-                          '<i class="fas fa-file-alt text-white"></i>'+
-                        '</div>'+
-                      '</div>'+
-                      '<div>'+
-                        '<div class="small text-bold-500">'+c.memo[b].nama+'</div>'+
-                        '<span class="font-weight-bold">'+c.memo[b].pesan+'</span>'+
-                      '</div>'+
-                    '</a>';
-                    }
-                    $('#memo').html(memos);
-                    $(".memo").html(c.jumlah_memo);
-                  }else{
-                    $('#memo').html('tidak ada notifikasi');
-                  }
-                  
-                }
-          });
-          // a();
-          // function a() {
-          //   $.getJSON(`<?= base_url() ?>admin/dashboard/get_notif`, function(result) {
-          //     $(".notif").html(result.jumlah)
-          //     console.log(result.jumlah)
-          //     1000
-          //   })
-          // }
+ <script>
+   $(document).ready(function() {
+     $.ajax({
+       method: 'POST',
+       url: baseurl + 'admin/memo/memos',
+       dataType: 'JSON',
+       success: function(d) {
+         // console.log(d);
 
-      });
-      
+         var memos = '';
+         if (d.jumlah_memo > 0) {
+           for (var i = 0; i < d.memo.length; i++) {
+             memos += '<a class="dropdown-item d-flex align-items-center" href="#">' +
+               '<div class="mr-3">' +
+               '<div class="icon-circle bg-primary">' +
+               '<i class="fas fa-file-alt text-white"></i>' +
+               '</div>' +
+               '</div>' +
+               '<div>' +
+               '<div class="small text-bold-500">' + d.memo[i].nama + '</div>' +
+               '<span class="font-weight-bold">' + d.memo[i].pesan + '</span>' +
+               '</div>' +
+               '</a>';
+           }
+           $('#memo').html(memos);
+           $(".memo").html(d.jumlah_memo);
+         } else {
+           $('#memo').html('tidak ada notifikasi');
+         }
 
-    </script> -->
+       }
+     });
+     // a();
+     // function a() {
+     //   $.getJSON(`<?= base_url() ?>admin/dashboard/get_notif`, function(result) {
+     //     $(".notif").html(result.jumlah)
+     //     console.log(result.jumlah)
+     //     1000
+     //   })
+     // }
+
+   });
+ </script>
 
  </html>
