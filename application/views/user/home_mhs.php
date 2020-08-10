@@ -26,8 +26,8 @@
              <tbody>
                <?php
                $no = 1;
-                $NPM = $this->session->userdata('NPM');
-                // $verifikasi = $this->db->get_where('form_mahasiswa', array('NPM' => $NPM))->result();
+                // $NPM = $this->session->userdata('NPM');
+                // $tabel2 = $this->db->get_where('form_mahasiswa', array('NPM' => $NPM))->result();
                 // if ($verifikasi > 0) {
                   foreach ($tabel2 as $vf) { ?>
                 <tr>

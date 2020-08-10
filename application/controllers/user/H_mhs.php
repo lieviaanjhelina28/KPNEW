@@ -17,7 +17,7 @@ class H_mhs extends CI_Controller
 	{
 		$data['title'] = 'Halaman Awal';
 		$data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
-		$data['tabel2'] = $this->mahasiswa_m->b();
+		$data['tabel2'] = $this->mahasiswa_m->b($this->session->userdata('NPM'));
 
 		$this->load->view('templates/header', $data);
 		$this->load->view('templates/sidebar', $data);
@@ -29,11 +29,12 @@ class H_mhs extends CI_Controller
 	}
 
 	 public function download($nama)
-        {
+    {
 
-            $name = $nama;
-            $data = file_get_contents('assets/files/' . $nama);
-            force_download($name, $data);
+        $name = $nama;
+        $data = file_get_contents('assets/files/' . $nama);
+        force_download($name, $data);
+    }
 
             //     $this->load->library('zip'); //untuk mengkonversi kedalam zip
             //     $file_path = 'assets/files/';
@@ -49,5 +50,5 @@ class H_mhs extends CI_Controller
             // force_download('assets/files/surat.docx', NULL);
             // redirect('admin/data_dosen');
 
-        }
+        
 }

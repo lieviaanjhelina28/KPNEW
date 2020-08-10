@@ -25,10 +25,10 @@ class dosen_m  extends CI_Model
         }
     }
 
-    public function g()
+    public function g($NIK)
     {
       $data = "SELECT form_dosen.*, user.nama as nama, user.id_user as id_user FROM form_dosen 
-      LEFT JOIN user ON form_dosen.petugas = user.id_user";
+      LEFT JOIN user ON form_dosen.petugas = user.id_user WHERE form_dosen.NIK =".$NIK;
       return $this->db->query($data)->result();
     }
 }

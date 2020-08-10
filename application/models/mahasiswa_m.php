@@ -27,10 +27,10 @@ class Mahasiswa_m extends CI_Model
         }
     }
 
-      public function b()
+      public function b($NPM)
     {
       $data = "SELECT form_mahasiswa.*, user.nama as nama, user.id_user as id_user FROM form_mahasiswa 
-      LEFT JOIN user ON form_mahasiswa.petugas = user.id_user";
+      LEFT JOIN user ON form_mahasiswa.petugas = user.id_user WHERE form_mahasiswa.NPM =".$NPM;
       return $this->db->query($data)->result();
     }
 }
