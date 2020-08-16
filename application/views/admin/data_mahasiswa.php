@@ -21,8 +21,8 @@
                 <!--      <th>Semester</th> -->
                 <th>Kebutuhan</th>
                 <th>Keperluan</th>
-                <!--  <th>Tgl Input</th>
-                <th>Tgl Selesai</th> -->
+                 <th>Tempat Lahir</th>
+                <th>Tanggal Lahir</th>
                 <th>Upload File</th>
                 <th>Status</th>
 
@@ -41,8 +41,8 @@
                   <!--        <td><?php echo $fm->semester ?></td> -->
                   <td><?php echo $fm->kebutuhan ?></td>
                   <td><?php echo $fm->keperluan ?></td>
-                  <!--  <td><?php echo $fm->tgl_input ?></td>
-                      <td><?php echo $fm->tgl_selesai ?></td> -->
+                  <td><?php echo $fm->tempat_lahir ?></td>
+                  <td><?php echo $fm->tanggal_lahir ?></td>
                   <td><input type="file" name="file" onchange="uploadsin(this, '<?= $fm->id_mhs ?>')" class="form-control-file" id="file"> </td>
 
                   <td>

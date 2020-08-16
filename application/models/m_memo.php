@@ -63,7 +63,7 @@ class M_memo extends CI_model{
       $this->db->from('user');
       $this->db->join('memo','memo.user_id=user.id_user');
       $this->db->order_by('memo.id_memo','DESC');
-      $this->db->limit(1);
+      $this->db->limit(2);
       $query = $this->db->get();
       return $query->result();
     }

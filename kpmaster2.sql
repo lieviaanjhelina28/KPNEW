@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 06, 2020 at 02:18 AM
+-- Generation Time: Aug 16, 2020 at 06:13 PM
 -- Server version: 10.3.16-MariaDB
 -- PHP Version: 7.3.6
 
@@ -48,7 +48,7 @@ CREATE TABLE `form_dosen` (
 --
 
 INSERT INTO `form_dosen` (`id_dosen`, `user_id`, `nama_dosen`, `NIK`, `kebutuhan`, `keperluan`, `file`, `file_admin`, `petugas`, `status`, `created_at`, `updated_at`) VALUES
-(1, 78, 'lala', '410100544', 'Surat Tugas', 'Tugas Negara', 'surat-pernyataan_sertifikasi_2.docx', 'db.pdf', '76', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+(1, 91, 'Lala', '410100555', 'Surat Tugas', 'Tugas Negara', 'BAB3.pdf', 'db.pdf', '92', 1, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -80,7 +80,7 @@ CREATE TABLE `form_mahasiswa` (
 --
 
 INSERT INTO `form_mahasiswa` (`id_mhs`, `user_id`, `nama_mahasiswa`, `tempat_lahir`, `tanggal_lahir`, `NPM`, `semester`, `kebutuhan`, `keperluan`, `tgl_input`, `tgl_selesai`, `status`, `file`, `petugas`, `created_at`, `updated_at`) VALUES
-(1, 77, 'Lievia Anjhelina Maharani', 'Bogor', '1998-08-28', '161105150552', '8', 'Surat Keterangan Aktif', 'Keperluan Tertentu', '2020-08-06', '2020-08-08', 1, 'FKIP.pdf', '76', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+(1, 89, 'Lievia Anjhelina Maharani', 'Bogor', '1998-08-28', '161105150552', '8', 'Dokumen Sidang Skripsi', 'Sidang Skripsi', '2020-08-16', '2020-08-18', 1, 'TUGAS1.pdf', '92', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -103,7 +103,7 @@ CREATE TABLE `memo` (
 --
 
 INSERT INTO `memo` (`id_memo`, `user_id`, `nama`, `pesan`, `status`, `created_at`, `updated_at`) VALUES
-(30, 76, 'anjhel', '<p>ggggggggggggg</p>', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+(63, 92, 'Oliv', '<p>HAII</p>', 1, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -128,8 +128,8 @@ CREATE TABLE `notif` (
 --
 
 INSERT INTO `notif` (`id_notif`, `user_id`, `nama`, `mhs_id`, `dosen_id`, `pesan`, `status`, `created_at`, `updated_at`) VALUES
-(227, 78, 'lala', NULL, 1, 'Surat Tugas', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(228, 77, 'Lievia Anjhelina Maharani', 1, NULL, 'Surat Keterangan Aktif', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+(251, 89, 'Lievia Anjhelina Maharani', 1, NULL, 'Dokumen Sidang Skripsi', 1, NULL, NULL),
+(252, 91, 'Lala', NULL, 1, 'Surat Tugas', 1, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -191,6 +191,8 @@ CREATE TABLE `user` (
   `email` varchar(50) NOT NULL,
   `NPM` varchar(12) DEFAULT NULL,
   `NIK` varchar(9) DEFAULT NULL,
+  `tempat_lahir` varchar(20) DEFAULT NULL,
+  `tanggal_lahir` date DEFAULT NULL,
   `password` varchar(256) NOT NULL,
   `role_id` int(1) NOT NULL,
   `aktif` int(1) NOT NULL,
@@ -203,12 +205,10 @@ CREATE TABLE `user` (
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`id_user`, `nama`, `email`, `NPM`, `NIK`, `password`, `role_id`, `aktif`, `dibuat`, `created_at`, `updated_at`) VALUES
-(73, 'Shavia Huriah Arumdapta', 'shaviahuriyaharumdapta@gmail.com', '201105150556', '', '$2y$10$i4HXvQ/FxOSRXQXjSerYZOM/BwZXfF73GiHf8ugIb7xTnMwv4CU0e', 2, 1, 1596386180, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(75, 'oliv', 'oolive697@gmail.com', '', '', '$2y$10$FDqpQ/5mYrT/0ENeQdsnq.SBzShYlGeaNfOzIfQ1Y3dtFhYOJZlru', 1, 1, 1596670379, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(76, 'anjhel', 'lieviaaaaaanm@gmail.com', '', '', '$2y$10$7EDp/PnY9/M0coxGAEyX8eJWWsPuRbdz6.WPgHMIXz9Tz72QhFa2S', 1, 1, 1596670540, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(77, 'Lievia Anjhelina Maharani', 'lieviaanjhelinam28@gmail.com', '161105150552', '', '$2y$10$4EokHIoRBdwjoKZJn5e2MeST0KR.AATDcj471TOYFEIXl8v41/FM6', 2, 1, 1596671217, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(78, 'lala', 'lala28nana@gmail.com', '', '410100544', '$2y$10$WpNDVZgZvMUHEHGm9YiPG.MZR5XdJLsd3Cx4orpJlQs5SbKXaVy82', 3, 1, 1596671459, '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+INSERT INTO `user` (`id_user`, `nama`, `email`, `NPM`, `NIK`, `tempat_lahir`, `tanggal_lahir`, `password`, `role_id`, `aktif`, `dibuat`, `created_at`, `updated_at`) VALUES
+(89, 'Lievia Anjhelina Maharani', 'lieviaanjhelinam28@gmail.com', '161105150552', '', 'Bogor', '1998-08-28', '$2y$10$vQ8QvY2DGuDYSPA0N9WzdOnAMhZoNECVJW/X1Fk0DjimRAb14k2YK', 2, 1, 1597587477, NULL, NULL),
+(91, 'Lala', 'lala28nana@gmail.com', '', '410100555', '', '0000-00-00', '$2y$10$4pgn5FhtejM8v5CM/U8cH.rxOgnptMqyMo0ioQ74iJTBUmnrDMFvO', 3, 1, 1597589806, NULL, NULL),
+(92, 'Oliv', 'oolive697@gmail.com', '', '', '', '0000-00-00', '$2y$10$6X9xuIz.J5DNTCUPzaFDI.Dzpvdx5dk/CTNYjq6JvABkx/oTz4TOK', 1, 1, 1597591910, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -430,13 +430,13 @@ ALTER TABLE `form_mahasiswa`
 -- AUTO_INCREMENT for table `memo`
 --
 ALTER TABLE `memo`
-  MODIFY `id_memo` int(1) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id_memo` int(1) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
 
 --
 -- AUTO_INCREMENT for table `notif`
 --
 ALTER TABLE `notif`
-  MODIFY `id_notif` int(1) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=229;
+  MODIFY `id_notif` int(1) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=253;
 
 --
 -- AUTO_INCREMENT for table `surat`
@@ -454,7 +454,7 @@ ALTER TABLE `surat2`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(1) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=79;
+  MODIFY `id_user` int(1) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=93;
 
 --
 -- AUTO_INCREMENT for table `user_access_menu`
@@ -484,7 +484,7 @@ ALTER TABLE `user_sub_menu`
 -- AUTO_INCREMENT for table `user_token`
 --
 ALTER TABLE `user_token`
-  MODIFY `id_token` int(1) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
+  MODIFY `id_token` int(1) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
 
 --
 -- Constraints for dumped tables

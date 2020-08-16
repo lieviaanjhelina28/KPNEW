@@ -30,6 +30,19 @@
                 <?php echo form_error('NPM', ' <small class="text-danger pl-3">', '</small> '); ?>
               </div>
 
+              <!-- Tempat Lahir -->
+              <div class="form-group">
+                <input type="text" class="form-control form-control-user" id="tempat_lahir" name="tempat_lahir" placeholder="Tempat lahir" value="<?php echo set_value('tempat_lahir'); ?>">
+                <?php echo form_error('tempat_lahir', ' <small class="text-danger pl-3">', '</small> '); ?>
+              </div>
+
+              <!-- Tanggal Lahir -->
+              <div class="form-group">
+                <input type="date" class="form-control form-control-user" id="tanggal_lahir" name="tanggal_lahir" placeholder="tanggal lahir" value="<?php echo set_value('tanggal_lahir'); ?>">
+                 <small class="text pl-3">Format Tanggal Lahir : (Bulan/Tanggal/Tahun)</small>
+                <?php echo form_error('tanggal_lahir', ' <small class="text-danger pl-3">', '</small> '); ?>
+              </div>
+
               <!-- password -->
               <div class="form-group row">
                 <div class="col-sm-6 mb-3 mb-sm-0">

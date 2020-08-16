@@ -15,13 +15,13 @@
          </div>
          <div class="form-group">
            <label><b>Tempat Lahir</b></label>
-           <input type="text" name="tempat_lahir" class="form-control" id="tempat_lahir" placeholder="Contoh : Bogor">
+           <input type="text" name="tempat_lahir" readonly="" class="form-control" id="tempat_lahir" placeholder="Contoh : Bogor" value="<?php echo $user['tempat_lahir']; ?>">
            <?php echo form_error('tempat_lahir', ' <small class="text-danger pl-3">', '</small> '); ?>
          </div>
 
          <div class="form-group">
            <label><b>Tanggal Lahir</b> </label>
-           <input type="date" name="tanggal_lahir" class="form-control" id="tanggal_lahir" placeholder=" Masukkan Tanggal Lahir">
+           <input type="date" name="tanggal_lahir" readonly="" class="form-control" id="tanggal_lahir" placeholder=" Masukkan Tanggal Lahir" value="<?php echo $user['tanggal_lahir']; ?>">
            <small>Contoh Format : (12/30/2017) - (Bulan/Tanggal/Tahun)</small>
            <?php echo form_error('tanggal_lahir', ' <small class="text-danger pl-3">', '</small> '); ?>
 

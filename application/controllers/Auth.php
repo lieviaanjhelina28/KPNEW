@@ -129,6 +129,15 @@ class Auth extends CI_Controller
 			'min_length' => 'NPM harus 12 digit!'
 		]);
 
+		$this->form_validation->set_rules('tempat_lahir', 'Tempat_lahir', 'required|trim', [
+			'required' => 'Tempat Lahir Lengkap harus diisi!'
+
+		]);
+
+		$this->form_validation->set_rules('tanggal_lahir', 'Tanggal_lahir', 'required|trim', [
+			'required' => 'Tanggal Lahir Lengkap harus diisi!'
+
+		]);
 
 
 		$this->form_validation->set_rules('password1', 'Password', 'required|trim|min_length[3]|matches[password2]', [
@@ -153,6 +162,8 @@ class Auth extends CI_Controller
 				'email' => htmlspecialchars($email),
 				'NPM' => htmlspecialchars($this->input->post('NPM', true)),
 				'NIK' => htmlspecialchars($this->input->post('NIK', true)),
+				'tempat_lahir' => htmlspecialchars($this->input->post('tempat_lahir', true)),
+				'tanggal_lahir' => htmlspecialchars($this->input->post('tanggal_lahir', true)),
 				'password' => password_hash($this->input->post('password1'), PASSWORD_DEFAULT),
 				'role_id' => 2,
 				'aktif' => 0,
@@ -226,6 +237,8 @@ class Auth extends CI_Controller
 				'email' => htmlspecialchars($email),
 				'NPM' => htmlspecialchars($this->input->post('NPM', true)),
 				'NIK' => htmlspecialchars($this->input->post('NIK', true)),
+				'tempat_lahir' => htmlspecialchars($this->input->post('tempat_lahir', true)),
+				'tanggal_lahir' => htmlspecialchars($this->input->post('tanggal_lahir', true)),
 				'password' => password_hash($this->input->post('password1'), PASSWORD_DEFAULT),
 				'role_id' => 3,
 				'aktif' => 0,
@@ -289,6 +302,8 @@ class Auth extends CI_Controller
 				'email' => htmlspecialchars($email),
 				'NPM' => htmlspecialchars($this->input->post('NPM', true)),
 				'NIK' => htmlspecialchars($this->input->post('NIK', true)),
+				'tempat_lahir' => htmlspecialchars($this->input->post('tempat_lahir', true)),
+				'tanggal_lahir' => htmlspecialchars($this->input->post('tanggal_lahir', true)),
 				'password' => password_hash($this->input->post('password1'), PASSWORD_DEFAULT),
 				'role_id' => 1,
 				'aktif' => 0,
